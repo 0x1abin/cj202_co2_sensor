@@ -1,0 +1,29 @@
+menu "CJ202 CO2 Sensor Configuration"
+
+    config CJ202_DEFAULT_GPIO
+        int "Default GPIO for CJ202 CO2 Sensor"
+        range 0 48
+        default 4
+        help
+            The GPIO pin that is connected to the CJ202 CO2 sensor's PWM output.
+    
+    choice CJ202_DEFAULT_MODE
+        prompt "Default capture mode for CJ202 CO2 Sensor"
+        default CJ202_MODE_GPIO_INTERRUPT
+        help
+            Default method to capture PWM signals from the CJ202 CO2 sensor.
+
+        config CJ202_MODE_GPIO_INTERRUPT
+            bool "GPIO Interrupt Mode"
+            help
+                Use GPIO interrupts to capture the PWM signal.
+
+        config CJ202_MODE_MCPWM_CAPTURE
+            bool "MCPWM Capture Mode"
+            depends on !IDF_TARGET_ESP32C2 && !IDF_TARGET_ESP32C3
+            help
+                Use MCPWM capture to measure the PWM signal.
+                Not available on ESP32-C2 and ESP32-C3.
+    endchoice
+
+endmenu 
