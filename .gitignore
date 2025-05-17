@@ -94,3 +94,4 @@ docs/html
 
 # esp-idf managed components
 **/managed_components/**
+dist/**

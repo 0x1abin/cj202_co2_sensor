@@ -1,0 +1,8 @@
+version: "0.0.1"
+description: "CJ202 CO2 sensor component"
+url: "https://github.com/0x1abin/cj202_co2_sensor"
+documentation: "https://github.com/0x1abin/cj202_co2_sensor/blob/main/README.md"
+repository: "https://github.com/0x1abin/cj202_co2_sensor.git"
+dependencies:
+  idf:
+    version: ">=5.0"
